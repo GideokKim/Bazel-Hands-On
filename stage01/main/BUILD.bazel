@@ -1,0 +1,8 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+# The name of the target should be the same as the name of the source file
+# that is the main entry point of the application (minus the extension).
+cc_binary(
+    name = "hello-world",
+    srcs = ["hello-world.cc"],
+)
