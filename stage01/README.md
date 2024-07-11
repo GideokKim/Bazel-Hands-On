@@ -82,3 +82,13 @@ The `WORKSPACE` file in Bazel defines the root directory of a Bazel project. It 
 For a detailed example, visit Bazel Documentation.
 
 In Stage 01, it is used only to define the root directory and is left as an empty file.
+
+## `load()` statement
+
+```
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+```
+
+Bazel extensions are files ending in `.bzl`. Use the load statement to import a symbol from an extension. This code loads the file `@rules_cc//cc:defs.bzl` and adds the `cc_binary` symbol to the environment. This can be used to load new rules, functions, or constants (for example, a string or a list).
+
+The [`@rules_cc//cc:defs.bzl` file](https://github.com/bazelbuild/rules_cc/blob/main/cc/defs.bzl) is part of the [rules_cc repository](https://github.com/bazelbuild/rules_cc), which provides Bazel rules for compiling C and C++ code. This file typically contains definitions and macros for configuring and building C/C++ targets within a [Bazel project](https://github.com/bazelbuild).
