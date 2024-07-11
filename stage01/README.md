@@ -2,6 +2,63 @@
 
 This showcases how to build a single file to create a runnable application.
 
+## Getting started
+
+### Build
+
+To build this example, use
+
+```
+bazel build //main:hello-world
+```
+
+or
+
+```
+bazel build //...
+```
+
+If the build is successful, Bazel prints the output similar to
+
+```
+INFO: Analyzed target //main:hello-world (0 packages loaded, 0 targets configured).
+INFO: Found 1 target...
+Target //main:hello-world up-to-date:
+  bazel-bin/main/hello-world
+INFO: Elapsed time: 0.147s, Critical Path: 0.10s
+INFO: 3 processes: 1 internal, 2 linux-sandbox.
+INFO: Build completed successfully, 3 total actions
+```
+
+### Run
+
+To build this example, use
+
+```
+bazel run //main:hello-world
+```
+
+or
+
+```
+bazel run //...
+```
+
+If the build is successful, Bazel prints the output similar to
+
+```
+INFO: Analyzed target //main:hello-world (0 packages loaded, 0 targets configured).
+INFO: Found 1 target...
+Target //main:hello-world up-to-date:
+  bazel-bin/main/hello-world
+INFO: Elapsed time: 0.062s, Critical Path: 0.00s
+INFO: 1 process: 1 internal.
+INFO: Build completed successfully, 1 total action
+INFO: Running command line: bazel-bin/main/hello-world
+Hello world
+Thu Jul 11 18:07:29 2024
+```
+
 ## BUILD File
 
 A `BUILD` file is the main configuration file that tells Bazel what software outputs to build, what their dependencies are, and how to build them. Bazel takes a `BUILD` file as input and uses the file to create a graph of dependencies and to derive the actions that must be completed to build intermediate and final software outputs. The file can also be named `BUILD.bazel`.
