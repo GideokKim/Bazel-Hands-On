@@ -9,3 +9,11 @@ Next, retrieve the sample project from Bazel's GitHub repository by running the 
 ```
 git clone https://github.com/GideokKim/Bazel-Hands-On.git
 ```
+
+## Getting started
+
+To proceed with each stage example, move the example directory you wish to proceed with using the command below(This command moves to the stage01 directory.):
+
+```
+cd stage01/
+```
