@@ -1,0 +1,18 @@
+{
+    "homepage": "https://github.com/kroma-network/tachyon",
+    "maintainers": [
+        {
+            "email": "ryan@lightscale.io",
+            "github": "chokobole",
+            "name": "Ryan Kim"
+        }
+    ],
+    "repository": [
+        "github:kroma-network/tachyon"
+    ],
+    "versions": [
+        "v0.2.0",
+        "v0.1.0"
+    ],
+    "yanked_versions": {}
+}

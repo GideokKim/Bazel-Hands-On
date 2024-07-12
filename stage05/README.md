@@ -74,3 +74,11 @@ The `bazel_dep` function in `MODULE.bazel` is used to declare dependencies on ot
 1. `name`: The name of the module you are depending on. If available, check the `MODULE.bazel` file in the external repository for the module name. See [Google Test module name](https://github.com/google/googletest/blob/b4aaf97d8f7eaffab79aa15e10a91b331b941fe2/MODULE.bazel#L33-L37).
 2. `version`: The version of the module you want to use.
 3. `repo_name`: The name of the external repo representing this dependency. This is by default the name of the module. In this example, Google Test was used as stage05_teset.
+
+## Registry
+
+A registry of Bazel's Bzlmod system is a repository that hosts metadata about Bazel modules, including their versions and dependencies. It serves as a centralized location where Bazel can fetch information about modules to resolve and download dependencies during the build process.
+
+### Bazel Central Registry
+
+The default Bazel registry for the Bzlmod external dependency system of Bazel. It is the recommended place to find and publish your favorite Bazel projects. Visit <https://registry.bazel.build> to check what modules are already available!

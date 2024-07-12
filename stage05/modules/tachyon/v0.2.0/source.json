@@ -1,0 +1,7 @@
+{
+    "integrity": "sha256-Gn7dof9Wln4zvJOKTwpou578a6c9YrtKX1ZiRjaYBWw=",
+    "strip_prefix": "tachyon-v0.2.0",
+    "url": "https://github.com/kroma-network/tachyon/archive/refs/tags/v0.2.0.zip",
+    "patch_strip": 0,
+    "patches": {}
+}

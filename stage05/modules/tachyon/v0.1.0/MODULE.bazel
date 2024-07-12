@@ -1,0 +1,5 @@
+module(
+    name = "kroma_network_tachyon",
+    version = "v0.1.0",
+)
+bazel_dep(name = "rules_cc", version = "0.0.9")
