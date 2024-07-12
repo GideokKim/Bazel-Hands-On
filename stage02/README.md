@@ -145,3 +145,7 @@ Use `cc_library()` for C++-compiled libraries.
 ### Arguments
 
 1. `hdrs`: For `cc_library` rules, headers in `hdrs` comprise the public interface of the library and can be directly included both from the files in `hdrs` and `srcs` of the library itself as well as from files in `hdrs` and `srcs` of `cc_*` rules that list the library in their `deps`.
+
+## Dependencies
+
+![image](/stage02/img/bazel-hands-on-stage2.png)
