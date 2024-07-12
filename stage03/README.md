@@ -1,4 +1,4 @@
-# Stage 3
+# Stage 03
 
 In this stage we step it up and showcase how to integrate multiple `cc_library` targets from different packages.
 
