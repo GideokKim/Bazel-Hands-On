@@ -1,0 +1,8 @@
+cc_test(
+    name = "hello-greet-test",
+    srcs = ["hello-greet-test.cc"],
+    deps = [
+        "//main:hello-greet",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
