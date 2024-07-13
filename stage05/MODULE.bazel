@@ -7,8 +7,9 @@
 
 module(
     name = "stage05",
-    repo_name= "bazel_hands_on_stage05"
+    version = "0.0.1",
+    compatibility_level = 1,
 )
 
-bazel_dep(name = "rules_cc", version = "0.0.9", repo_name = "rules_cc")
-bazel_dep(name = "googletest", version = "1.14.0", repo_name = "com_google_googletest")
+bazel_dep(name = "rules_cc", version = "0.0.9")
+bazel_dep(name = "googletest", version = "1.14.0", repo_name = "stage05_teset")
