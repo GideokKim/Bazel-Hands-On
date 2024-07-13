@@ -28,7 +28,7 @@ INFO: 17 processes: 9 internal, 8 linux-sandbox.
 INFO: Build completed successfully, 17 total actions
 ```
 
-### run
+### Run
 
 To build this example, use
 
