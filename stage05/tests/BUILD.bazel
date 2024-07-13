@@ -3,6 +3,6 @@ cc_test(
     srcs = ["hello-greet-test.cc"],
     deps = [
         "//main:hello-greet",
-        "@stage05_teset//:gtest_main",
+        "@stage05_test//:gtest_main",
     ],
 )
