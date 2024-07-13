@@ -148,4 +148,4 @@ Use `cc_library()` for C++-compiled libraries.
 
 ## Dependencies
 
-![image](/stage02/img/bazel-hands-on-stage2.png)
+![image](/stage02/img/bazel-hands-on-stage02.png)
