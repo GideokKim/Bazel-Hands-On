@@ -1,5 +1,7 @@
 # Bazel-Hands-On
 
+Welcome to the Bazel-Hands-On repository! This guide will help you get started with Bazel, a powerful build and test tool. Note, this is for Linux and MacOS only.
+
 ## Prerequisites
 
 Start by [installing Bazel](https://bazel.build/install), if you haven’t already. This tutorial uses Git for source control, so for best results [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) as well.
