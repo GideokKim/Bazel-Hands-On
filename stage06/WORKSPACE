@@ -1,0 +1,5 @@
+workspace(name = "bazel_hands_on_stage04")
+
+load("//third_party:stage06_deps.bzl", "stage06_deps")
+
+stage06_deps()
