@@ -31,6 +31,10 @@ To build this example, use
 bazel test //...
 ```
 
+## mutiple urls in `http_archive`
+
+When we provide multiple URLs in the urls attribute of the `http_archive` function in Bazel, it specifies alternative locations from which the archive can be fetched. This setup is useful for redundancy and reliability, ensuring that if the download from the primary URL fails, Bazel can try the next URL in the list.
+
 ## Splitting `WORKSPACE` File
 
 ### 1. Create a Directory for External Dependencies
