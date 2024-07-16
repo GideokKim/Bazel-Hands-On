@@ -1,6 +1,6 @@
 # Stage 02
 
-This showcases how to build a single file to create a runnable application.
+Here, we introduce the `cc_library` rule for building C++ libraries.
 
 ## Getting started
 
@@ -8,19 +8,20 @@ This showcases how to build a single file to create a runnable application.
 
 To build this example, use
 
-```
+```shell
 bazel build //main:hello-world
+bazel build //main:hello-greet
 ```
 
 or
 
-```
+```shell
 bazel build //...
 ```
 
 If the build is successful, Bazel prints the output similar to
 
-```
+```shell
 INFO: Analyzed 2 targets (83 packages loaded, 392 targets configured).
 INFO: Found 2 targets...
 INFO: Elapsed time: 0.243s, Critical Path: 0.10s
@@ -30,15 +31,15 @@ INFO: Build completed successfully, 12 total actions
 
 ### Run
 
-To build this example, use
+To run this example, use
 
-```
+```shell
 bazel run //main:hello-world
 ```
 
-If the build is successful, Bazel prints the output similar to
+If the run is successful, Bazel prints the output similar to
 
-```
+```shell
 INFO: Analyzed target //main:hello-world (0 packages loaded, 0 targets configured).
 INFO: Found 1 target...
 Target //main:hello-world up-to-date:
@@ -53,13 +54,13 @@ Thu Jul 11 18:56:13 2024
 
 If you enter the command below to run
 
-```
+```shell
 bazel run //...
 ```
 
 You will see an error message like this:
 
-```
+```shell
 ERROR: Only a single target can be run. Your target pattern //... expanded to the targets //main:hello-greet, //main:hello-world
 INFO: Elapsed time: 0.028s
 INFO: 0 processes.
@@ -73,7 +74,7 @@ The `tags = ["manual"]` line ensures that `bazel run //...` does not include thi
 
 To resolve the previous error, you can modify it as follows:
 
-```
+```python
 # BUILD.bazel
 
 cc_library( # rule function
@@ -93,7 +94,7 @@ The primary unit of code organization in a repository is the package. A package
 
 For example, in the following directory tree there are two packages, `my/app`, and the subpackage `my/app/tests`. Note that `my/app/data` is not a package, but a directory belonging to package `my/app`.
 
-```
+```shell
 src/my/app/BUILD
 src/my/app/app.cc
 src/my/app/data/input.txt
@@ -109,27 +110,32 @@ A package is a container of targets, which are defined in the package's `BUILD
 
 A label is an identifier for a target. A typical label in its full canonical form looks like:
 
-```
+```shell
 //package-name:target-name
 ```
 
 ### External repository
 
-```
+```shell
 @myrepo//my/app/main:app_binary
 ```
 
 ### Same repository
 
-```
+```shell
 //my/app/main:app_binary
 ```
 
 When the label refers to the same package it is used in, the package name (and optionally, the colon) may be omitted. So this label may be written either of the following ways:
 
-```
-app_binary
+```shell
 :app_binary
+```
+
+or
+
+```shell
+app_binary
 ```
 
 ## `cc_binary` rule
