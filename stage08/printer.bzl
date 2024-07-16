@@ -14,9 +14,11 @@ def _impl(ctx):
         print("    files = " + str([f.path for f in d.files.to_list()]))
 
     # For debugging, consider using `dir` to explore the existing fields.
+    print("\t--------------------ctx  members--------------------")
     # print(dir(ctx))  # prints all the fields and methods of ctx
     for field in dir(ctx):
         print("\t{}".format(str(field)))
+    print("\t--------------------ctx.attr members----------------")
     # print(dir(ctx.attr))  # prints all the attributes of the rule
     for field in dir(ctx.attr):
         print("\t{}".format(str(field)))
