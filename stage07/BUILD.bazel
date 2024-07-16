@@ -1,0 +1,12 @@
+load(":simple.bzl", "simple", "simple2")
+
+# Run 'bazel build //:nothing'. The target will be successfully analyzed,
+# but it does nothing.
+simple(name = "nothing")
+
+# Run 'bazel build //:debug-message'. The target will be successfully analyzed,
+# but it does nothing.
+simple2(
+    name = "debug-message",
+    message = "Hello, Bazel!"
+)

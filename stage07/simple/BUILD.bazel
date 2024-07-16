@@ -1,9 +1,0 @@
-load(":simple.bzl", "simple")
-
-# Run 'bazel build simple:nothing'. The target will be successfully analyzed,
-# but it does nothing.
-simple(name = "nothing")
-
-# Run 'bazel build simple:debug-message'. The target will be successfully analyzed,
-# but it does nothing.
-simple(name = "debug-message")
