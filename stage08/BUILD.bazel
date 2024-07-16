@@ -4,7 +4,7 @@ load(":printer.bzl", "printer")
 printer(
     name = "some_target",
     deps = [
-        "BUILD.bazel",
+        "BUILD.bazel", # Including BUILD.bazel is generally unnecessary.
         ":other",
     ],
 )
