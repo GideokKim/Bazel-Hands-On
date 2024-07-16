@@ -10,6 +10,8 @@ def _simple_impl(_):
 def _simple2_impl(ctx):
     # This function prints the passed message.
     print(ctx.attr.message)
+
+    # This function prints the label of this rule.
     print(ctx.label)
     print("This rule's label is " + str(ctx.label))
 
