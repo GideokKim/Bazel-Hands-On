@@ -1,6 +1,7 @@
-load(":file.bzl", "file")
+load(":make-file.bzl", "user_defined_file")
 
-file(
+user_defined_file(
     name = "hello",
-    content = "Hello world\n",
+    username = "Noah",
+    content = "Hello bazel!\n",
 )

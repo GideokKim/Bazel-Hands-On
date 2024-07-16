@@ -5,14 +5,18 @@ large files with a lot of static content, consider using
 `ctx.actions.expand_template` instead.
 """
 
-def file(**kwargs):
-    _file(out = "{name}.txt".format(**kwargs), **kwargs)
+def user_defined_file(**kwargs):
+    _user_defined_file_rule(out = "{name}.txt".format(**kwargs), **kwargs)
 
 def _impl(ctx):
     output = ctx.outputs.out
-    ctx.actions.write(output = output, content = ctx.attr.content)
+    content = "content : " + ctx.attr.content + "username : " + ctx.attr.username
+    ctx.actions.write(output = output, content = content)
 
-_file = rule(
+_user_defined_file_rule = rule(
     implementation = _impl,
-    attrs = {"content": attr.string(), "out": attr.output()},
+    attrs = {
+        "content": attr.string(),
+        "username": attr.string(),
+        "out": attr.output()},
 )
