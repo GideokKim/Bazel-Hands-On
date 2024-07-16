@@ -3,18 +3,24 @@
 # buildifier: disable=print
 def _impl(ctx):
     # Print debug information about the target.
-    print("Target {} has {} deps".format(ctx.label, len(ctx.attr.deps)))
+    print("\t****************************************************")
+    print("\tTarget {} has {} deps".format(ctx.label, len(ctx.attr.deps)))
 
     # For each target in deps, print its label and files.
     for i, d in enumerate(ctx.attr.deps):
-        print(" {}. label = {}".format(i + 1, d.label))
+        print("\t{}. label = {}".format(i + 1, d.label))
 
         # A label can represent any number of files (possibly 0).
         print("    files = " + str([f.path for f in d.files.to_list()]))
 
     # For debugging, consider using `dir` to explore the existing fields.
-    print(dir(ctx))  # prints all the fields and methods of ctx
-    print(dir(ctx.attr))  # prints all the attributes of the rule
+    # print(dir(ctx))  # prints all the fields and methods of ctx
+    for field in dir(ctx):
+        print("\t{}".format(str(field)))
+    # print(dir(ctx.attr))  # prints all the attributes of the rule
+    for field in dir(ctx.attr):
+        print("\t{}".format(str(field)))
+    print("\t****************************************************\n\n")
 
 printer = rule(
     implementation = _impl,
