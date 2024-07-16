@@ -1,6 +1,6 @@
 # Stage 04
 
-In this stage we step it up and showcase how to use third party dependencies(also called external dependencies).
+In this stage we step it up and show how to use third party dependencies(also called external dependencies).
 
 ## Getting started
 
@@ -8,13 +8,13 @@ In this stage we step it up and showcase how to use third party dependencies(als
 
 To build this example, use
 
-```
+```shell
 bazel build //...
 ```
 
 If the build is successful, Bazel prints the output similar to
 
-```
+```shell
 WARNING: --enable_bzlmod is set, but no MODULE.bazel file was found at the workspace root. Bazel will create an empty MODULE.bazel file. Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel. For more details, please refer to https://github.com/bazelbuild/bazel/issues/18958.
 INFO: Analyzed 4 targets (88 packages loaded, 483 targets configured).
 INFO: Found 4 targets...
@@ -27,9 +27,9 @@ The WARNING message may not appear depending on the Bazel version. This message 
 
 ### Test
 
-To build this example, use
+To test this example, use
 
-```
+```shell
 bazel test //...
 ```
 
@@ -39,7 +39,7 @@ If the test is successful, Bazel prints the output similar to
 
 ## `workspace()` statement
 
-```
+```python
 workspace(name = "bazel_hands_on_stage04")
 ```
 
@@ -49,11 +49,11 @@ By setting the workspace name in the `WORKSPACE` file, we can create dependencie
 
 ### Arguments
 
-1. `name`: The argument to specify the name of your workspace, in this case, "bazel_hands_on_stage04".
+1. `name`: The argument to specify the name of your workspace, in this case, `"bazel_hands_on_stage04"`.
 
 ## `http_archive()`
 
-http_archive is a Bazel repository rule used to fetch and extract an archive from a URL. It is often used to manage external dependencies by downloading their source code during the build process.
+`http_archive` is a Bazel repository rule used to fetch and extract an archive from a URL. It is often used to manage external dependencies by downloading their source code during the build process.
 
 ### Arguments
 
