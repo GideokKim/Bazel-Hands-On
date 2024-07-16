@@ -1,6 +1,6 @@
 # Stage 01
 
-This showcases how to build a single file to create a runnable application.
+It shows how to build a single file to produce an executable application.
 
 ## Getting started
 
@@ -32,7 +32,7 @@ INFO: Build completed successfully, 3 total actions
 
 ### Run
 
-To build this example, use
+To run this example, use
 
 ```
 bazel run //main:hello-world
@@ -63,9 +63,9 @@ Thu Jul 11 18:07:29 2024
 
 A `BUILD` file is the main configuration file that tells Bazel what software outputs to build, what their dependencies are, and how to build them. Bazel takes a `BUILD` file as input and uses the file to create a graph of dependencies and to derive the actions that must be completed to build intermediate and final software outputs. The file can also be named `BUILD.bazel`.
 
-This BUILD.bazel file in Stage 01 shows that we want to build a C++ binary using the cc_binary rule provided by Bazel. In the cc_binary rule, name of the binary is specified in name attribute (in this example, it's hello-world), required source files to be built are provided in srcs attribute.
+This `BUILD.bazel` file in Stage 01 shows that we want to build a C++ binary using the `cc_binary` rule provided by Bazel. In the `cc_binary` rule, name of the binary is specified in name attribute (in this example, it's hello-world), required source files to be built are provided in srcs attribute.
 
-```
+```python
 cc_binary(
     name = "hello-world",
     srcs = ["hello-world.cc"],
@@ -79,7 +79,6 @@ The `WORKSPACE` file in Bazel defines the root directory of a Bazel project. It 
 - `External Repository Rules`: Rules like http_archive, git_repository, and local_repository to fetch and use external code.
 - `Load Statements`: Load custom macros and functions for better organization and reuse.
 - `Dependency Management`: Specify third-party libraries and modules your project depends on.
-For a detailed example, visit Bazel Documentation.
 
 In Stage 01, it is used only to define the root directory and is left as an empty file.
 
@@ -89,13 +88,13 @@ In Stage 01, it is used only to define the root directory and is left as an empt
 load("@rules_cc//cc:defs.bzl", "cc_binary")
 ```
 
-Bazel extensions are files ending in `.bzl`. Use the load statement to import a symbol from an extension. This code loads the file `@rules_cc//cc:defs.bzl` and adds the `cc_binary` symbol to the environment. This can be used to load new rules, functions, or constants (for example, a string or a list).
+Bazel extensions are files ending in `.bzl`. Use the load statement to import a symbol from an extension. This code loads the file `@rules_cc//cc:defs.bzl` and adds the `cc_binary` symbol to the environment. This can be used to load new rules, functions, or constants.
 
 The [`@rules_cc//cc:defs.bzl` file](https://github.com/bazelbuild/rules_cc/blob/main/cc/defs.bzl) is part of the [rules_cc repository](https://github.com/bazelbuild/rules_cc), which provides Bazel rules for compiling C and C++ code. This file typically contains definitions and macros for configuring and building C/C++ targets within a [Bazel project](https://github.com/bazelbuild).
 
 ## `cc_binary` rule
 
-```
+```python
 cc_binary(
     name = "hello-world",
     srcs = ["hello-world.cc"],
@@ -107,4 +106,4 @@ It produces an executable binary.
 ### Arguments
 
 1. `name`: The name of the binary target. A unique name for this target.
-2. `srcs`: A list of source files to compile. The `srcs` argument specifies the source files that are used to build the binary. These source files typically include .cc (C++ source files), .c (C source files), and other files that are directly compiled into the binary.
+2. `srcs`: A list of source files to compile. The `srcs` argument specifies the source files that are used to build the binary. These source files typically include `.cc` (C++ source files), `.c` (C source files), and other files that are directly compiled into the binary.
