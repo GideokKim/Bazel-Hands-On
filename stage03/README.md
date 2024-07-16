@@ -1,6 +1,6 @@
 # Stage 03
 
-In this stage we step it up and showcase how to integrate multiple `cc_library` targets from different packages.
+In this stage we step it up and show how to integrate multiple `cc_library` targets from different packages.
 
 ## Getting started
 
@@ -8,19 +8,19 @@ In this stage we step it up and showcase how to integrate multiple `cc_library` 
 
 To build this example, use
 
-```
+```shell
 bazel build //main:hello-world
 ```
 
 or
 
-```
+```shell
 bazel build //...
 ```
 
 If the build is successful, Bazel prints the output similar to
 
-```
+```shell
 INFO: Analyzed 3 targets (85 packages loaded, 395 targets configured).
 INFO: Found 3 targets...
 INFO: Elapsed time: 0.344s, Critical Path: 0.10s
@@ -30,15 +30,15 @@ INFO: Build completed successfully, 17 total actions
 
 ### Run
 
-To build this example, use
+To run this example, use
 
-```
+```shell
 bazel run //main:hello-world
 ```
 
-If the build is successful, Bazel prints the output similar to
+If the run is successful, Bazel prints the output similar to
 
-```
+```shell
 INFO: Analyzed target //main:hello-world (0 packages loaded, 0 targets configured).
 INFO: Found 1 target...
 Target //main:hello-world up-to-date:
@@ -55,7 +55,7 @@ Fri Jul 12 13:23:10 2024
 
 Below, we see a similar configuration from Stage 2, except that this `BUILD` file is in a subdirectory called lib. In Bazel, subdirectories containing `BUILD` files are known as packages. The new property `visibility` will tell Bazel which package(s) can reference this target, in this case the `//main` package can use `hello-time` library.
 
-```
+```python
 cc_library(
     name = "hello-time",
     srcs = ["hello-time.cc"],
@@ -64,9 +64,9 @@ cc_library(
 )
 ```
 
-To use our `hello-time` library, an extra dependency is added in the form of //path/to/package:target_name, in this case, it's `//lib:hello-time`
+To use our `hello-time` library, an extra dependency is added in the form of `//path/to/package:target_name`, in this case, it's `//lib:hello-time`.
 
-```
+```python
 cc_binary(
     name = "hello-world",
     srcs = ["hello-world.cc"],
