@@ -1,8 +1,8 @@
 # Stage 05
 
-In this stage we step it up and showcase how to resolve WARNING.
+In this stage we step it up and show how to resolve WARNING.
 
-```
+```shell
 WARNING: --enable_bzlmod is set, but no MODULE.bazel file was found at the workspace root. Bazel will create an empty MODULE.bazel file. Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel. For more details, please refer to https://github.com/bazelbuild/bazel/issues/18958.
 ```
 
@@ -12,13 +12,13 @@ WARNING: --enable_bzlmod is set, but no MODULE.bazel file was found at the works
 
 To build this example, use
 
-```
+```shell
 bazel build //...
 ```
 
 If the build is successful, Bazel prints the output similar to
 
-```
+```shell
 INFO: Analyzed 4 targets (57 packages loaded, 326 targets configured).
 INFO: Found 4 targets...
 INFO: Elapsed time: 1.666s, Critical Path: 1.34s
@@ -28,9 +28,9 @@ INFO: Build completed successfully, 45 total actions
 
 ### Test
 
-To build this example, use
+To test this example, use
 
-```
+```shell
 bazel test //...
 ```
 
@@ -44,7 +44,7 @@ A Bazel module is a Bazel project that can have multiple versions, each of which
 
 A module must have a `MODULE.bazel` file at its repo root. This file is the module's manifest, declaring its name, version, list of direct dependencies, and other information. For a basic example:
 
-```
+```python
 module(name = "my-module", version = "1.0")
 
 bazel_dep(name = "rules_cc", version = "0.0.1")
@@ -57,7 +57,7 @@ The `MODULE.bazel.lock` file is an auto-generated file used in Bazel's Bzlmod sy
 
 ## `module` function
 
-The `module` function in `MODULE.bazel` is used to define the module itself, including its name and version. This is the starting point for setting up a Bazel module. It should be called at most once, and if called, it must be the very first directive in the MODULE.bazel file.
+The `module` function in `MODULE.bazel` is used to define the module itself, including its name and version. This is the starting point for setting up a Bazel module. It should be called at most once, and if called, it must be the very first directive in the `MODULE.bazel` file.
 
 ### Arguments
 
