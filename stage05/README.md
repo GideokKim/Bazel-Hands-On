@@ -73,4 +73,4 @@ The `bazel_dep` function in `MODULE.bazel` is used to declare dependencies on ot
 
 1. `name`: The name of the module you are depending on. If available, check the `MODULE.bazel` file in the external repository for the module name. See [Google Test module name](https://github.com/google/googletest/blob/b4aaf97d8f7eaffab79aa15e10a91b331b941fe2/MODULE.bazel#L33-L37).
 2. `version`: The version of the module you want to use.
-3. `repo_name`: The name of the external repo representing this dependency. This is by default the name of the module. In this example, Google Test was used as stage05_teset.
+3. `repo_name`: The name of the external repo representing this dependency. This is by default the name of the module. In this example, Google Test was used as stage05_test.
