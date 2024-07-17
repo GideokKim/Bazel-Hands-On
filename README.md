@@ -19,3 +19,23 @@ To proceed with each stage example, move the example directory you wish to proce
 ```
 cd stage01/
 ```
+
+## Stage 01
+
+It shows how to build a single file to produce an executable application.
+
+## Stage 02
+
+Introduce the `cc_library` rule for building C++ libraries.
+
+## Stage 03
+
+This stage will showcase how to integrate multiple `cc_library` targets from different packages.
+
+## Stage 04
+
+This stage will showcase how to use third party dependencies(also called external dependencies).
+
+## Stage 05
+
+In this stage we step it up and show how to resolve WARNING using the bzlmod system.
