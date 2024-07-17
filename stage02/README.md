@@ -1,6 +1,6 @@
 # Stage 02
 
-Here, we introduce the `cc_library` rule for building C++ libraries.
+Here we introduce the `cc_library` rule for building C++ libraries.
 
 ## Getting started
 
@@ -19,7 +19,7 @@ or
 bazel build //...
 ```
 
-If the build is successful, Bazel prints the output similar to
+If the build is successful, Bazel prints an output similar to
 
 ```shell
 INFO: Analyzed 2 targets (83 packages loaded, 392 targets configured).
@@ -37,7 +37,7 @@ To run this example, use
 bazel run //main:hello-world
 ```
 
-If the run is successful, Bazel prints the output similar to
+If the run is successful, Bazel prints an output similar to
 
 ```shell
 INFO: Analyzed target //main:hello-world (0 packages loaded, 0 targets configured).
@@ -52,13 +52,13 @@ Hello world
 Thu Jul 11 18:56:13 2024
 ```
 
-If you enter the command below to run
+In this example, if the following statment is run,...
 
 ```shell
 bazel run //...
 ```
 
-You will see an error message like this:
+...you will see an error message like this:
 
 ```shell
 ERROR: Only a single target can be run. Your target pattern //... expanded to the targets //main:hello-greet, //main:hello-world
@@ -70,9 +70,9 @@ ERROR: Build failed. Not running target
 
 ## `tags = ["manual"]`
 
-The `tags = ["manual"]` line ensures that `bazel run //...` does not include this target in its execution, preventing cc_library targets from being run inadvertently.
+To remove a target from execution when running  `bazel run //...`, include the line `tags = ["manual"]` in the target.
 
-To resolve the previous error, you can modify it as follows:
+The previous error can be resolved by adding `tags = ["manual"]` to our `hello-greet` target as follows:
 
 ```python
 # BUILD.bazel
@@ -88,7 +88,7 @@ cc_library( # rule function
 
 ## Packages
 
-A package is defined as a directory containing a `BUILD` file named either `BUILD` or `BUILD.bazel`. Packages are the unit of granularity for deciding whether or not to allow access.
+A package is defined as a directory containing a `BUILD` file named either `BUILD` or `BUILD.bazel`. It is also seen as a container of the targets defined in said file.Packages are the unit of granularity for deciding whether or not to allow access.
 
 The primary unit of code organization in a repository is the package. A package is a collection of related files and a specification of how they can be used to produce output artifacts.
 
@@ -104,7 +104,7 @@ src/my/app/tests/test.cc
 
 ## Targets
 
-A package is a container of targets, which are defined in the package's `BUILD` file. Most targets are one of two principal kinds, files and rules.
+Targets are defined in the `BUILD` file. Most targets are one of two principal types: a file or a rule.
 
 ## Labels
 
@@ -126,7 +126,7 @@ A label is an identifier for a target. A typical label in its full canonical for
 //my/app/main:app_binary
 ```
 
-When the label refers to the same package it is used in, the package name (and optionally, the colon) may be omitted. So this label may be written either of the following ways:
+When the label refers to a target in the same package it is used in, the package name (and optionally, the colon) may be omitted. So this label may be written in either of the following ways:
 
 ```shell
 :app_binary
@@ -138,13 +138,13 @@ or
 app_binary
 ```
 
-## `cc_binary` rule
+## `cc_binary` rule (2)
 
 ### Arguments
 
-1. `deps`: Dependencies required to build the binary, such as libraries defined in other targets.
+1. `deps`: A list of the ependencies required to build the binary, such as libraries defined from other targets.
 
-## `cc_library` rule
+## `cc_library` rule (1)
 
 Use `cc_library()` for C++-compiled libraries.
 

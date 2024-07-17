@@ -18,7 +18,7 @@ or
 bazel build //...
 ```
 
-If the build is successful, Bazel prints the output similar to
+If the build is successful, Bazel prints and output similar to
 
 ```shell
 INFO: Analyzed 3 targets (85 packages loaded, 395 targets configured).
@@ -36,7 +36,7 @@ To run this example, use
 bazel run //main:hello-world
 ```
 
-If the run is successful, Bazel prints the output similar to
+If the run is successful, Bazel prints an output similar to
 
 ```shell
 INFO: Analyzed target //main:hello-world (0 packages loaded, 0 targets configured).
@@ -53,7 +53,7 @@ Fri Jul 12 13:23:10 2024
 
 ## `visibility` attribute
 
-Below, we see a similar configuration from Stage 2, except that this `BUILD` file is in a subdirectory called lib. In Bazel, subdirectories containing `BUILD` files are known as packages. The new property `visibility` will tell Bazel which package(s) can reference this target, in this case the `//main` package can use `hello-time` library.
+Below, we see a similar configuration from Stage 2, except that this `BUILD` file is in a subdirectory called `lib`. In Bazel, subdirectories containing `BUILD` files are known as packages. The new property `visibility` will tell Bazel which package(s) can reference this target. In this case, the `//main` package can use `hello-time` library.
 
 ```python
 cc_library(
@@ -64,7 +64,7 @@ cc_library(
 )
 ```
 
-To use our `hello-time` library, an extra dependency is added in the form of `//path/to/package:target_name`, in this case, it's `//lib:hello-time`.
+To use a library, add a dependency in the form of `//path/to/package:library_target_name`. In this case, to add `hello-greet` to `hello-world`, add the dependency `//lib:hello-time`.
 
 ```python
 cc_binary(
@@ -82,4 +82,4 @@ cc_binary(
 1. `"//visibility:public"`: Grants access to all packages. (May not be combined with any other specification.)
 2. `"//visibility:private"`: Does not grant any additional access; only targets in this package can use this target. (May not be combined with any other specification.)
 3. `"//main:__pkg__"`: Grants access to `//main` (but not its subpackages).
-4. `"//main:__subpackages__"`: Grants access `//main` and all of its direct and indirect subpackages.(sets the visibility so that all targets in the main package and its subpackages can depend on this target.)
+4. `"//main:__subpackages__"`: Grants access to `//main` and all of its direct and indirect subpackages. (Sets the visibility so that all targets in the main package and its subpackages can depend on this target.)
